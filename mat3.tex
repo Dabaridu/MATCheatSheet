@@ -1,0 +1,161 @@
+\documentclass[9pt,twocolumn,a4paper]{article}
+\usepackage[margin=0.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{multicol}
+\setlength{\columnsep}{0.8cm}
+
+\begin{document}
+
+\section*{\small Teorija polj}
+
+\subsection*{\footnotesize Vektorski operatorji}
+\begin{align*}
+\text{Gradient: } &\nabla f = \left(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}\right)\\
+\text{Divergenca: } &\nabla \cdot \mathbf{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}\\
+\text{Rotor: } &\nabla \times \mathbf{F} = \begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k}\\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}\\
+F_x & F_y & F_z
+\end{vmatrix}\\
+\text{Laplacijan: } &\nabla^2 f = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2}
+\end{align*}
+
+\subsection*{\footnotesize Lastnosti polj}
+\begin{align*}
+\text{Irotacijalno: } &\nabla \times \mathbf{F} = 0\\
+\text{Solenoidno: } &\nabla \cdot \mathbf{F} = 0\\
+\text{Konservativno: } &\mathbf{F} = -\nabla \phi\\
+\text{Potencial: } &\phi = -\int \mathbf{F} \cdot d\mathbf{r}
+\end{align*}
+
+\section*{\small Prostorska geometrija}
+
+\subsection*{\footnotesize Koordinatni sistemi}
+\begin{align*}
+\text{Polarni: } &x = r\cos\theta, \quad y = r\sin\theta\\
+\text{Cilindrični: } &x = r\cos\theta, \quad y = r\sin\theta, \quad z = z\\
+\text{Sferični: } &x = r\sin\phi\cos\theta, \quad y = r\sin\phi\sin\theta, \quad z = r\cos\phi
+\end{align*}
+
+\subsection*{\footnotesize Dodatno}
+\begin{align*}
+\text{Ločna dolžina: } &s = \int_a^b |\mathbf{r}'(t)| \, dt = \int_a^b \sqrt{x'(t)^2 + y'(t)^2 + z'(t)^2} \, dt\\
+\text{Tangentni vektor: } &\mathbf{T} = \frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|}\\
+\text{Normalna ravnina: } &\mathbf{r}'(t_0) \cdot (\mathbf{r} - \mathbf{r}(t_0)) = 0\\
+\text{Odvod integrala s parametrom: } &\frac{d}{dx}\int_a^b f(x,t) dt = \int_a^b \frac{\partial f}{\partial x} dt\\
+\text{Naravna parameterizacija: } &|\mathbf{r}'(s)| = 1, \quad s = \text{ločna dolžina}
+\end{align*}
+
+\subsection*{\footnotesize Večkratni integrali}
+\begin{align*}
+\text{Dvojni integral: } &\iint_D f(x,y) \, dA = \int_a^b \int_{g_1(x)}^{g_2(x)} f(x,y) \, dy \, dx\\
+\text{Ploščina: } &A = \iint_D 1 \, dA\\
+\text{Prostornina: } &V = \iint_D f(x,y) \, dA\\
+\text{Težišče: } &\bar{x} = \frac{1}{A}\iint_D x \, dA, \quad \bar{y} = \frac{1}{A}\iint_D y \, dA
+\end{align*}
+
+\begin{align*}
+\text{Trojni integral: } &\iiint_E f(x,y,z) \, dV\\
+\text{Masa: } &m = \iiint_E \rho(x,y,z) \, dV\\
+\text{Vztrajnostni moment: } &I = \iiint_E r^2 \rho \, dV\\
+\text{Povprečna vrednost: } &\bar{f} = \frac{1}{V}\iiint_E f(x,y,z) \, dV
+\end{align*}
+
+\subsection*{\footnotesize Krivuljni integrali}
+\textbf{Skalarno polje:}
+\begin{align*}
+\int_C f \, ds = \int_a^b f(\mathbf{r}(t)) |\mathbf{r}'(t)| \, dt
+\end{align*}
+\textbf{Vektorsko polje:}
+\begin{align*}
+\int_C \mathbf{V} \cdot d\mathbf{r} = \int_a^b \mathbf{V}(\mathbf{r}(t)) \cdot \mathbf{r}'(t) \, dt
+\end{align*}
+
+\subsection*{\footnotesize Ploskovni integrali}
+\textbf{Skalarno polje:}
+\begin{align*}
+\iint_S f \, dS = \iint_D f(\mathbf{r}(u,v)) \sqrt{EG-F^2} \, du \, dv
+\end{align*}
+kjer $E = \mathbf{r}_u \cdot \mathbf{r}_u$, $F = \mathbf{r}_u \cdot \mathbf{r}_v$, $G = \mathbf{r}_v \cdot \mathbf{r}_v$
+
+\textbf{Vektorsko polje:}
+\begin{align*}
+\iint_S \mathbf{V} \cdot d\mathbf{S} = \iint_D [\mathbf{V}, \mathbf{r}_u, \mathbf{r}_v] \, du \, dv
+\end{align*}
+
+\subsection*{\footnotesize Integralski izreki}
+\begin{align*}
+\text{Greenov: } &\oint_C (P \, dx + Q \, dy) = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dA\\
+\text{Stokesov: } &\oint_C \mathbf{V} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{V}) \cdot d\mathbf{S}\\
+\text{Gaussov: } &\iint_S \mathbf{V} \cdot d\mathbf{S} = \iiint_E \nabla \cdot \mathbf{V} \, dV
+\end{align*}
+
+\section{Complex Analysis (Kompleksna analiza)}
+
+\subsection{Complex Functions}
+\begin{align}
+z &= x + iy, \quad |z| = \sqrt{x^2 + y^2}, \quad \arg z = \arctan\left(\frac{y}{x}\right)\\
+e^z &= e^x(\cos y + i\sin y)\\
+\log z &= \ln|z| + i\arg z + 2\pi ik\\
+\sin z &= \frac{e^{iz} - e^{-iz}}{2i}, \quad \cos z = \frac{e^{iz} + e^{-iz}}{2}\\
+\sinh z &= \frac{e^z - e^{-z}}{2}, \quad \cosh z = \frac{e^z + e^{-z}}{2}
+\end{align}
+
+\subsection{Analyticity}
+\textbf{Cauchy-Riemann equations:}
+\begin{align}
+\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}
+\end{align}
+
+\textbf{Harmonic condition:} $\nabla^2 u = \nabla^2 v = 0$
+
+\subsection{Complex Integration}
+\begin{align}
+\text{Cauchy's formula: } &f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} dz\\
+\text{Residue theorem: } &\oint_C f(z) dz = 2\pi i \sum \text{Res}(f, z_k)\\
+\text{Laurent series: } &f(z) = \sum_{n=-\infty}^{\infty} a_n (z - z_0)^n
+\end{align}
+
+\section*{\small Integrali}
+
+\subsection*{\footnotesize Pravila integriranja}
+\begin{align*}
+\text{Substitucija: } &\int f(g(x))g'(x) dx = \int f(u) du, \quad u = g(x)\\
+\text{Po delih: } &\int u \, dv = uv - \int v \, du\\
+\text{Parcialni ulomki: } &\frac{P(x)}{Q(x)} = \sum \frac{A_i}{(x-a_i)^{n_i}}
+\end{align*}
+
+\subsection*{\footnotesize Elementarni integrali}
+\begin{align*}
+\int x^n dx &= \frac{x^{n+1}}{n+1} + C, \quad n \neq -1\\
+\int \frac{1}{x} dx &= \ln|x| + C\\
+\int e^x dx &= e^x + C\\
+\int \sin x dx &= -\cos x + C\\
+\int \cos x dx &= \sin x + C\\
+\int \frac{1}{1+x^2} dx &= \arctan x + C\\
+\int \frac{1}{\sqrt{1-x^2}} dx &= \arcsin x + C
+\end{align*}
+
+\section*{\small Odvodi}
+
+\subsection*{\footnotesize Pravila odvajanja}
+\begin{align*}
+(f + g)' &= f' + g'\\
+(fg)' &= f'g + fg'\\
+\left(\frac{f}{g}\right)' &= \frac{f'g - fg'}{g^2}\\
+(f(g(x)))' &= f'(g(x)) \cdot g'(x)
+\end{align*}
+
+\subsection*{\footnotesize Elementarni odvodi}
+\begin{align*}
+\frac{d}{dx}x^n &= nx^{n-1}\\
+\frac{d}{dx}e^x &= e^x\\
+\frac{d}{dx}\ln x &= \frac{1}{x}\\
+\frac{d}{dx}\sin x &= \cos x\\
+\frac{d}{dx}\cos x &= -\sin x\\
+\frac{d}{dx}\tan x &= \sec^2 x\\
+\frac{d}{dx}\arctan x &= \frac{1}{1+x^2}\\
+\frac{d}{dx}\arcsin x &= \frac{1}{\sqrt{1-x^2}}
+\end{align*}
+
+\end{document}

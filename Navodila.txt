@@ -1,0 +1,113 @@
+Teorija polj:
+    gradient
+    divergence 
+    rotor
+    laplacian
+    Irotacialno polje
+    Solonoidno polje
+    Potencialna polja
+    Potencial vektorskega polja
+
+prostorska geometrija:
+    koordinatni sistemi
+        prevedba v polarne koordinate
+        prevedba v izmaknjene polarne koordinate
+        prevedba v cilindrične koordinate
+        prevedba v sferične koordinate
+    krivulje
+        oblike zapisa
+        tangentna premica in normalna ravnila
+    ploskve
+        oblike zapisa
+    Integrali s parametrom 
+        parameterizacija
+        ločna dolžina
+        naravna parameterizacija
+    dvojni integrali 
+        prevedba na dvokratni integrali
+        ploščina območja
+        prostornina in površina telesa
+        težišča likov
+    trojni integrali
+        prevedba na trokrtni integral
+        prostornina V
+        masa
+        težišča telesa 
+        povprečna vrednost
+        vztrajnostni momenti
+    krivuljni integrali
+        potencialnega polja 
+        vektorskega polja 
+    ploskovni integral
+        potencialnega polja 
+        vektorskega polja 
+    integralski izreki
+        greenov 
+        stokesov
+        gaussov
+
+kompleksna analiza:
+    analitičnost funkcije
+        couchy-reymanovi enačbi
+        pogoj harmoničnosti
+    elementarne funkcije
+        x 
+        y
+        log 
+        e^z,e ^(x+iy)
+        log z
+        sin
+        cos
+        sh
+        ch
+    kompleksni integral
+    Couchieyeva formula
+    Laurentova vrsta
+    residum 
+    residum za realne integrale
+    Konformne preslikave
+
+Integrali:
+    pravila integriranja
+        substitucija
+        delni integral
+        po delih
+    elementarni integrali
+
+odvodi:
+    pravila odvajanja
+        vsota
+        produkt
+        količnik
+        verižna
+        kompozitum
+    odvodi elementarnih funkcij
+
+
+# MAT4:
+#     integralne funkcije
+#         gamma
+#         beta
+#     integralne transformacije
+#         fourierova
+#         laplaceova
+#         z-transformacija
+#     diferencialne enačbe
+#         1. reda
+#             ločljive spremenljivke
+#             linearne
+#             Bernoullijeve
+#             homogene
+#         2. reda
+#             karakteristična enačba
+#             nehomogene
+#                 metoda nedoločenih koeficientov
+#                 variacija konstante
+#         višjega reda
+#             karakteristična enačba
+#             nehomogene
+#                 metoda nedoločenih koeficientov
+#                 variacija konstante
+#         sistemi diferencialnih enačb
+#             metoda matrik
+

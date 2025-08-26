@@ -1,0 +1,148 @@
+\documentclass[10pt,twocolumn,a4paper]{article}
+\usepackage[margin=1cm]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+
+\begin{document}
+
+\title{\textbf{Mathematics Reference Sheet}}
+\author{}
+\date{}
+\maketitle
+
+\section{Field Theory (Teorija polj)}
+
+\subsection{Vector Operations}
+\begin{align}
+\text{Gradient: } &\nabla f = \left(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}\right)\\
+\text{Divergence: } &\nabla \cdot \mathbf{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}\\
+\text{Curl (Rotor): } &\nabla \times \mathbf{F} = \begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k}\\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}\\
+F_x & F_y & F_z
+\end{vmatrix}\\
+\text{Laplacian: } &\nabla^2 f = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2}
+\end{align}
+
+\subsection{Field Properties}
+\begin{align}
+\text{Irrotational: } &\nabla \times \mathbf{F} = 0\\
+\text{Solenoidal: } &\nabla \cdot \mathbf{F} = 0\\
+\text{Conservative: } &\mathbf{F} = -\nabla \phi\\
+\text{Potential: } &\phi = -\int \mathbf{F} \cdot d\mathbf{r}
+\end{align}
+
+\section{Spatial Geometry (Prostorska geometrija)}
+
+\subsection{Coordinate Transformations}
+\begin{align}
+\text{Polar: } &x = r\cos\theta, \quad y = r\sin\theta\\
+\text{Cylindrical: } &x = r\cos\theta, \quad y = r\sin\theta, \quad z = z\\
+\text{Spherical: } &x = r\sin\phi\cos\theta, \quad y = r\sin\phi\sin\theta, \quad z = r\cos\phi
+\end{align}
+
+\subsection{Curves and Surfaces}
+\begin{align}
+\text{Arc length: } &s = \int_a^b |\mathbf{r}'(t)| \, dt = \int_a^b \sqrt{x'(t)^2 + y'(t)^2 + z'(t)^2} \, dt\\
+\text{Tangent vector: } &\mathbf{T} = \frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|}\\
+\text{Normal plane: } &\mathbf{r}'(t_0) \cdot (\mathbf{r} - \mathbf{r}(t_0)) = 0
+\end{align}
+
+\subsection{Multiple Integrals}
+\begin{align}
+\text{Double integral: } &\iint_D f(x,y) \, dA = \int_a^b \int_{g_1(x)}^{g_2(x)} f(x,y) \, dy \, dx\\
+\text{Area: } &A = \iint_D 1 \, dA\\
+\text{Volume: } &V = \iint_D f(x,y) \, dA\\
+\text{Centroid: } &\bar{x} = \frac{1}{A}\iint_D x \, dA, \quad \bar{y} = \frac{1}{A}\iint_D y \, dA
+\end{align}
+
+\begin{align}
+\text{Triple integral: } &\iiint_E f(x,y,z) \, dV\\
+\text{Mass: } &m = \iiint_E \rho(x,y,z) \, dV\\
+\text{Moment of inertia: } &I = \iiint_E r^2 \rho \, dV
+\end{align}
+
+\subsection{Line and Surface Integrals}
+\begin{align}
+\text{Line integral (scalar): } &\int_C f \, ds = \int_a^b f(\mathbf{r}(t)) |\mathbf{r}'(t)| \, dt\\
+\text{Line integral (vector): } &\int_C \mathbf{F} \cdot d\mathbf{r} = \int_a^b \mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t) \, dt\\
+\text{Surface integral: } &\iint_S f \, dS = \iint_D f(\mathbf{r}(u,v)) |\mathbf{r}_u \times \mathbf{r}_v| \, du \, dv
+\end{align}
+
+\subsection{Integral Theorems}
+\begin{align}
+\text{Green's: } &\oint_C (P \, dx + Q \, dy) = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dA\\
+\text{Stokes': } &\oint_C \mathbf{F} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{F}) \cdot d\mathbf{S}\\
+\text{Gauss (Divergence): } &\iint_S \mathbf{F} \cdot d\mathbf{S} = \iiint_E \nabla \cdot \mathbf{F} \, dV
+\end{align}
+
+\section{Complex Analysis (Kompleksna analiza)}
+
+\subsection{Complex Functions}
+\begin{align}
+z &= x + iy, \quad |z| = \sqrt{x^2 + y^2}, \quad \arg z = \arctan\left(\frac{y}{x}\right)\\
+e^z &= e^x(\cos y + i\sin y)\\
+\log z &= \ln|z| + i\arg z + 2\pi ik\\
+\sin z &= \frac{e^{iz} - e^{-iz}}{2i}, \quad \cos z = \frac{e^{iz} + e^{-iz}}{2}\\
+\sinh z &= \frac{e^z - e^{-z}}{2}, \quad \cosh z = \frac{e^z + e^{-z}}{2}
+\end{align}
+
+\subsection{Analyticity}
+\textbf{Cauchy-Riemann equations:}
+\begin{align}
+\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}
+\end{align}
+
+\textbf{Harmonic condition:} $\nabla^2 u = \nabla^2 v = 0$
+
+\subsection{Complex Integration}
+\begin{align}
+\text{Cauchy's formula: } &f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} dz\\
+\text{Residue theorem: } &\oint_C f(z) dz = 2\pi i \sum \text{Res}(f, z_k)\\
+\text{Laurent series: } &f(z) = \sum_{n=-\infty}^{\infty} a_n (z - z_0)^n
+\end{align}
+
+\section{Integration (Integrali)}
+
+\subsection{Integration Techniques}
+\begin{align}
+\text{Substitution: } &\int f(g(x))g'(x) dx = \int f(u) du, \quad u = g(x)\\
+\text{By parts: } &\int u \, dv = uv - \int v \, du\\
+\text{Partial fractions: } &\frac{P(x)}{Q(x)} = \sum \frac{A_i}{(x-a_i)^{n_i}}
+\end{align}
+
+\subsection{Elementary Integrals}
+\begin{align}
+\int x^n dx &= \frac{x^{n+1}}{n+1} + C, \quad n \neq -1\\
+\int \frac{1}{x} dx &= \ln|x| + C\\
+\int e^x dx &= e^x + C\\
+\int \sin x dx &= -\cos x + C\\
+\int \cos x dx &= \sin x + C\\
+\int \frac{1}{1+x^2} dx &= \arctan x + C\\
+\int \frac{1}{\sqrt{1-x^2}} dx &= \arcsin x + C
+\end{align}
+
+\section{Derivatives (Odvodi)}
+
+\subsection{Differentiation Rules}
+\begin{align}
+(f + g)' &= f' + g'\\
+(fg)' &= f'g + fg'\\
+\left(\frac{f}{g}\right)' &= \frac{f'g - fg'}{g^2}\\
+(f(g(x)))' &= f'(g(x)) \cdot g'(x)
+\end{align}
+
+\subsection{Elementary Derivatives}
+\begin{align}
+\frac{d}{dx}x^n &= nx^{n-1}\\
+\frac{d}{dx}e^x &= e^x\\
+\frac{d}{dx}\ln x &= \frac{1}{x}\\
+\frac{d}{dx}\sin x &= \cos x\\
+\frac{d}{dx}\cos x &= -\sin x\\
+\frac{d}{dx}\tan x &= \sec^2 x\\
+\frac{d}{dx}\arctan x &= \frac{1}{1+x^2}\\
+\frac{d}{dx}\arcsin x &= \frac{1}{\sqrt{1-x^2}}
+\end{align}
+
+\end{document}
