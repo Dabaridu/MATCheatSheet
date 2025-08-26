@@ -1,24 +1,36 @@
 \documentclass[9pt,twocolumn,a4paper]{article}
-\usepackage[margin=0.5cm]{geometry}
+\usepackage[margin=0.2cm]{geometry}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{multicol}
-\setlength{\columnsep}{0.8cm}
+\setlength{\columnsep}{0.4cm}
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{0.01pt}{0.1pt}
+\titlespacing*{\subsection}{0pt}{0.01pt}{0.01pt}
+    
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\section}{\vspace{1.5ex plus .2ex}}{\vspace{0.2ex}}{}{}
+\patchcmd{\subsection}{\vspace{1ex plus .2ex}}{\vspace{0.1ex}}{}{}
+\makeatother
+
 
 \begin{document}
 
 \section*{\small Teorija polj}
 
 \subsection*{\footnotesize Vektorski operatorji}
-\begin{align*}
-\text{Gradient: } &\nabla f = \left(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}\right)\\
-\text{Divergenca: } &\nabla \cdot \mathbf{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}\\
-\text{Rotor: } &\nabla \times \mathbf{F} = \begin{vmatrix}
-\mathbf{i} & \mathbf{j} & \mathbf{k}\\
-\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z}\\
+\begin{gather*}
+\text{f = skalarno polje, F = vektorsko polje} \\
+\text{grad: } \nabla f = \left(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}\right) \\
+\text{div: } \nabla \cdot \mathbf{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z} \\
+\text{rot: } \nabla \times \mathbf{F} =
+\begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
 F_x & F_y & F_z
-\end{vmatrix}\\
-\text{Laplacijan: } &\nabla^2 f = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2}
-\end{align*}
+\end{vmatrix} \\
+\text{Laplacijan: } \nabla^2 f = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2}
+\end{gather*}
 
 \subsection*{\footnotesize Lastnosti polj}
 \begin{align*}
@@ -38,15 +50,17 @@ F_x & F_y & F_z
 \end{align*}
 
 \subsection*{\footnotesize Dodatno}
-\begin{align*}
-\text{Ločna dolžina: } &s = \int_a^b |\mathbf{r}'(t)| \, dt = \int_a^b \sqrt{x'(t)^2 + y'(t)^2 + z'(t)^2} \, dt\\
-\text{Tangentni vektor: } &\mathbf{T} = \frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|}\\
-\text{Normalna ravnina: } &\mathbf{r}'(t_0) \cdot (\mathbf{r} - \mathbf{r}(t_0)) = 0\\
-\text{Odvod integrala s parametrom: } &\frac{d}{dx}\int_a^b f(x,t) dt = \int_a^b \frac{\partial f}{\partial x} dt\\
-\text{Naravna parameterizacija: } &|\mathbf{r}'(s)| = 1, \quad s = \text{ločna dolžina}
-\end{align*}
+\begin{gather*}
+\text{Ločna dolžina: } \quad s = \int_a^b |\mathbf{r}'(t)| \, dt = \int_a^b \sqrt{x'(t)^2 + y'(t)^2 + z'(t)^2} \, dt \\
+\text{Tangentni vektor: } \quad \mathbf{T} = \frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|} \\
+\text{Normalna ravnina: } \quad \mathbf{r}'(t_0) \cdot (\mathbf{r} - \mathbf{r}(t_0)) = 0 \\
+\text{Odvod integrala s parametrom: } \\
+F(x)=\int_{u(x)}^{v(x)} f(x,y)dy \quad \Rightarrow \quad \\
+F'(x)=\int_{u(x)}^{v(x)} \frac{\partial(f(x,y))}{\partial(x)}dy+f(x,v(x))*v'(x)-f(x,u(x))*u'(x) \\
+\text{Naravna parameterizacija: } \quad |\mathbf{r}'(s)| = 1, \quad s = \text{ločna dolžina}
+\end{gather*}
 
-\subsection*{\footnotesize Večkratni integrali}
+\subsection*{\small Večkratni integrali}
 \begin{align*}
 \text{Dvojni integral: } &\iint_D f(x,y) \, dA = \int_a^b \int_{g_1(x)}^{g_2(x)} f(x,y) \, dy \, dx\\
 \text{Ploščina: } &A = \iint_D 1 \, dA\\
@@ -62,26 +76,25 @@ F_x & F_y & F_z
 \end{align*}
 
 \subsection*{\footnotesize Krivuljni integrali}
-\textbf{Skalarno polje:}
-\begin{align*}
-\int_C f \, ds = \int_a^b f(\mathbf{r}(t)) |\mathbf{r}'(t)| \, dt
-\end{align*}
-\textbf{Vektorsko polje:}
-\begin{align*}
-\int_C \mathbf{V} \cdot d\mathbf{r} = \int_a^b \mathbf{V}(\mathbf{r}(t)) \cdot \mathbf{r}'(t) \, dt
-\end{align*}
+\begin{gather*}
+    \textbf{\scriptsize Skalarno polje:}
+    \int_C f \, ds = \int_a^b f(\mathbf{r}(t)) |\mathbf{r}'(t)| \, dt
+\end{gather*}
+\begin{gather*}
+    \textbf{\scriptsize Vektorsko polje:}
+    \int_C \mathbf{V} \cdot d\mathbf{r} = \int_a^b \mathbf{V}(\mathbf{r}(t)) \cdot \mathbf{r}'(t) \, dt
+\end{gather*}
 
 \subsection*{\footnotesize Ploskovni integrali}
-\textbf{Skalarno polje:}
-\begin{align*}
-\iint_S f \, dS = \iint_D f(\mathbf{r}(u,v)) \sqrt{EG-F^2} \, du \, dv
-\end{align*}
-kjer $E = \mathbf{r}_u \cdot \mathbf{r}_u$, $F = \mathbf{r}_u \cdot \mathbf{r}_v$, $G = \mathbf{r}_v \cdot \mathbf{r}_v$
-
-\textbf{Vektorsko polje:}
-\begin{align*}
-\iint_S \mathbf{V} \cdot d\mathbf{S} = \iint_D [\mathbf{V}, \mathbf{r}_u, \mathbf{r}_v] \, du \, dv
-\end{align*}
+\begin{gather*}
+    \textbf{\scriptsize Skalarno polje:}
+    \iint_S f \, dS = \iint_D f(\mathbf{r}(u,v)) \sqrt{EG-F^2} \, du \, dv \\
+    \text{kjer } E = \mathbf{r}_u \cdot \mathbf{r}_u,\quad F = \mathbf{r}_u \cdot \mathbf{r}_v,\quad G = \mathbf{r}_v \cdot \mathbf{r}_v 
+\end{gather*}
+\begin{gather*}
+    \textbf{\scriptsize Vektorsko polje:}
+    \iint_S \mathbf{V} \cdot d\mathbf{S} = \iint_D [\mathbf{V}, \mathbf{r}_u, \mathbf{r}_v] \, du \, dv
+\end{gather*}
 
 \subsection*{\footnotesize Integralski izreki}
 \begin{align*}
@@ -90,9 +103,9 @@ kjer $E = \mathbf{r}_u \cdot \mathbf{r}_u$, $F = \mathbf{r}_u \cdot \mathbf{r}_v
 \text{Gaussov: } &\iint_S \mathbf{V} \cdot d\mathbf{S} = \iiint_E \nabla \cdot \mathbf{V} \, dV
 \end{align*}
 
-\section{Complex Analysis (Kompleksna analiza)}
+\section*{Kompleksna analiza}
 
-\subsection{Complex Functions}
+\subsection*{Elem. komp. fun.}
 \begin{align}
 z &= x + iy, \quad |z| = \sqrt{x^2 + y^2}, \quad \arg z = \arctan\left(\frac{y}{x}\right)\\
 e^z &= e^x(\cos y + i\sin y)\\
@@ -101,7 +114,7 @@ e^z &= e^x(\cos y + i\sin y)\\
 \sinh z &= \frac{e^z - e^{-z}}{2}, \quad \cosh z = \frac{e^z + e^{-z}}{2}
 \end{align}
 
-\subsection{Analyticity}
+\subsection*{Analitičnost in odvedljivost}
 \textbf{Cauchy-Riemann equations:}
 \begin{align}
 \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}
@@ -109,12 +122,14 @@ e^z &= e^x(\cos y + i\sin y)\\
 
 \textbf{Harmonic condition:} $\nabla^2 u = \nabla^2 v = 0$
 
-\subsection{Complex Integration}
+\subsection*{Complex Integration}
 \begin{align}
 \text{Cauchy's formula: } &f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} dz\\
 \text{Residue theorem: } &\oint_C f(z) dz = 2\pi i \sum \text{Res}(f, z_k)\\
 \text{Laurent series: } &f(z) = \sum_{n=-\infty}^{\infty} a_n (z - z_0)^n
 \end{align}
+
+\newpage
 
 \section*{\small Integrali}
 

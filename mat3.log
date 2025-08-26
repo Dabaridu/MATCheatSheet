@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.29)  26 AUG 2025 11:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.29)  26 AUG 2025 14:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -191,10 +191,24 @@ Package multicol Warning: May not work with the twocolumn option on input line 1
 \mult@nat@firstbox=\box97
 \colbreak@box=\box98
 \mc@col@check@num=\count286
+) (c:/texlive/2024/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2023/10/27 v2.16 Sectioning titles
+\ttl@box=\box99
+\beforetitleunit=\skip55
+\aftertitleunit=\skip56
+\ttl@plus=\dimen167
+\ttl@minus=\dimen168
+\ttl@toksa=\toks24
+\titlewidth=\dimen169
+\titlewidthlast=\dimen170
+\titlewidthfirst=\dimen171
+) (c:/texlive/2024/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count287
 ) (c:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-03-14 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count287
-\l__pdf_internal_box=\box99
+\l__color_backend_stack_int=\count288
+\l__pdf_internal_box=\box100
 )
 
 LaTeX Warning: Unused global option(s):
@@ -203,20 +217,20 @@ LaTeX Warning: Unused global option(s):
 (./mat3.aux)
 \openout1 = `mat3.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
-LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -226,22 +240,22 @@ LaTeX Font Info:    ... okay on input line 7.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(14.22636pt, 569.05515pt, 14.22636pt)
-* v-part:(T,H,B)=(14.22636pt, 816.59412pt, 14.22636pt)
+* h-part:(L,W,R)=(5.69046pt, 586.12695pt, 5.69046pt)
+* v-part:(T,H,B)=(5.69046pt, 833.66592pt, 5.69046pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=569.05515pt
-* \textheight=816.59412pt
-* \oddsidemargin=-58.04362pt
-* \evensidemargin=-58.04362pt
-* \topmargin=-95.04362pt
+* \textwidth=586.12695pt
+* \textheight=833.66592pt
+* \oddsidemargin=-66.57953pt
+* \evensidemargin=-66.57953pt
+* \topmargin=-103.57953pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
 * \footskip=30.0pt
 * \marginparwidth=4.0pt
 * \marginparsep=10.0pt
-* \columnsep=22.76228pt
+* \columnsep=11.38092pt
 * \skip\footins=9.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
@@ -252,21 +266,16 @@ LaTeX Font Info:    ... okay on input line 7.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 12.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 22.
 (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 12.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 22.
  (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (83.38461pt too wide) detected at line 47
+Overfull \hbox (5.5581pt too wide) detected at line 61
 []
- []
-
-
-Underfull \hbox (badness 7291) in paragraph at lines 93--93
-[]\OT1/cmr/bx/n/14.4 Complex Anal-y-sis (Kom-plek-sna
  []
 
 [1
@@ -280,18 +289,18 @@ L3 programming layer <2024-03-14>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 2416 strings out of 474104
- 34851 string characters out of 5747502
- 1968496 words of memory out of 5000000
- 24806 multiletter control sequences out of 15000+600000
+ 3035 strings out of 474104
+ 42734 string characters out of 5747502
+ 1969496 words of memory out of 5000000
+ 25417 multiletter control sequences out of 15000+600000
  562522 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,14n,65p,248b,193s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on mat3.pdf (2 pages, 160183 bytes).
+ 57i,14n,65p,248b,182s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on mat3.pdf (2 pages, 170904 bytes).
 PDF statistics:
- 76 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+ 81 PDF objects out of 1000 (max. 8388607)
+ 48 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
