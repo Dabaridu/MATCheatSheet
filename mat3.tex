@@ -3,15 +3,28 @@
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{multicol}
 \setlength{\columnsep}{0.4cm}
-\usepackage{titlesec}
-\titlespacing*{\section}{0pt}{0.01pt}{0.1pt}
-\titlespacing*{\subsection}{0pt}{0.01pt}{0.01pt}
-    
+
 \usepackage{etoolbox}
 \makeatletter
 \patchcmd{\section}{\vspace{1.5ex plus .2ex}}{\vspace{0.2ex}}{}{}
-\patchcmd{\subsection}{\vspace{1ex plus .2ex}}{\vspace{0.1ex}}{}{}
+\patchcmd{\subsection}{\vspace{0.01ex plus .2ex}}{\vspace{0.1ex}}{}{}
 \makeatother
+
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{0ex}{0ex}
+\titlespacing*{\subsection}{0pt}{0ex}{0ex}
+\makeatletter
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {0ex}%
+                                   {0ex}%
+                                   {\normalfont\small\bfseries}}
+\renewcommand\subsection{\@startsection {subsection}{2}{\z@}%
+                                   {0ex}%
+                                   {0ex}%
+                                   {\normalfont\footnotesize\bfseries}}
+\makeatother
+
+
 
 
 \begin{document}
@@ -28,36 +41,39 @@
 \mathbf{i} & \mathbf{j} & \mathbf{k} \\
 \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
 F_x & F_y & F_z
-\end{vmatrix} \\
+\end{vmatrix} = (Py-Qz,Pz-Rx,Qx-Py)\\
 \text{Laplacijan: } \nabla^2 f = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2}
 \end{gather*}
 
 \subsection*{\footnotesize Lastnosti polj}
-\begin{align*}
-\text{Irotacijalno: } &\nabla \times \mathbf{F} = 0\\
-\text{Solenoidno: } &\nabla \cdot \mathbf{F} = 0\\
-\text{Konservativno: } &\mathbf{F} = -\nabla \phi\\
-\text{Potencial: } &\phi = -\int \mathbf{F} \cdot d\mathbf{r}
-\end{align*}
+\begin{gather*}
+\text{Irotacijalno: } \nabla \times \mathbf{F} = 0\\
+\text{Solenoidno: } \nabla \cdot \mathbf{F} = 0\\
+\text{Potencial: } \vec{v}(x,y,z) = grad u(x,y,z)\\
+\text{u = skalarno p. in potencial polja v}
+\end{gather*}
 
 \section*{\small Prostorska geometrija}
 
 \subsection*{\footnotesize Koordinatni sistemi}
-\begin{align*}
-\text{Polarni: } &x = r\cos\theta, \quad y = r\sin\theta\\
-\text{Cilindrični: } &x = r\cos\theta, \quad y = r\sin\theta, \quad z = z\\
-\text{Sferični: } &x = r\sin\phi\cos\theta, \quad y = r\sin\phi\sin\theta, \quad z = r\cos\phi
-\end{align*}
+\begin{gather*}
+\text{Polarni: } x = r\cos\theta, \quad y = r\sin\theta \quad J = r\\
+\text{Cilindrični: } x = r\cos\theta, \quad y = r\sin\theta, \quad z = z \quad J = r\\
+\text{Sferični: } x = r\sin\phi\cos\theta, \quad y = r\sin\phi\sin\theta,\\
+\quad z = r\cos\phi \quad J = r^2\sin\phi
+\end{gather*}
 
 \subsection*{\footnotesize Dodatno}
 \begin{gather*}
-\text{Ločna dolžina: } \quad s = \int_a^b |\mathbf{r}'(t)| \, dt = \int_a^b \sqrt{x'(t)^2 + y'(t)^2 + z'(t)^2} \, dt \\
+\text{Ločna dolžina: } s = \int_a^b |\mathbf{r}'(t)| \, dt = \int_a^b \sqrt{x'(t)^2 + y'(t)^2 + z'(t)^2} \, dt \\
 \text{Tangentni vektor: } \quad \mathbf{T} = \frac{\mathbf{r}'(t)}{|\mathbf{r}'(t)|} \\
 \text{Normalna ravnina: } \quad \mathbf{r}'(t_0) \cdot (\mathbf{r} - \mathbf{r}(t_0)) = 0 \\
 \text{Odvod integrala s parametrom: } \\
 F(x)=\int_{u(x)}^{v(x)} f(x,y)dy \quad \Rightarrow \quad \\
 F'(x)=\int_{u(x)}^{v(x)} \frac{\partial(f(x,y))}{\partial(x)}dy+f(x,v(x))*v'(x)-f(x,u(x))*u'(x) \\
-\text{Naravna parameterizacija: } \quad |\mathbf{r}'(s)| = 1, \quad s = \text{ločna dolžina}
+\text{Naravna parameterizacija: } \quad |\mathbf{r}'(s)|^2 = 1, \quad s = \text{ločna dolžina} \\
+\text{Tangentna premica in normalna ravnina: } \vec{e}\text{ ali }\vec{n} = \dot\vec{r}(t0) \\
+\text{Kot med Vektorjema: } \cos\theta = \frac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|}
 \end{gather*}
 
 \subsection*{\small Večkratni integrali}
@@ -77,57 +93,67 @@ F'(x)=\int_{u(x)}^{v(x)} \frac{\partial(f(x,y))}{\partial(x)}dy+f(x,v(x))*v'(x)-
 
 \subsection*{\footnotesize Krivuljni integrali}
 \begin{gather*}
-    \textbf{\scriptsize Skalarno polje:}
-    \int_C f \, ds = \int_a^b f(\mathbf{r}(t)) |\mathbf{r}'(t)| \, dt
-\end{gather*}
-\begin{gather*}
-    \textbf{\scriptsize Vektorsko polje:}
-    \int_C \mathbf{V} \cdot d\mathbf{r} = \int_a^b \mathbf{V}(\mathbf{r}(t)) \cdot \mathbf{r}'(t) \, dt
+    \textbf{\scriptsize S. polje:}
+    \int_C f(x,y,z) ds =\int_{t0}^{t1} f(x(t),y(t),z(t))*\sqrt{\dot{x}^2,+\dot{y}^2+\dot{z}^2} dt \\
+    \textbf{\scriptsize V. polje:}
+    \int_C \mathbf{V} \cdot d\mathbf{r} = \int_C(Pdx + Qdy + Rdz)= \\ =\int_{t0}^{t1}(P\dot{x}+Q\dot{y}+R\dot{z}) dt 
+    \quad d\vec{r} = \dot\vec{r} dt = (\dot{x}dt,\dot{y}dt,\dot{z}dt)\\
+    \text{Neodvisen od poti če }\vec{v}\text{ potencialno polje } (rot\vec{V}=0)
 \end{gather*}
 
 \subsection*{\footnotesize Ploskovni integrali}
 \begin{gather*}
-    \textbf{\scriptsize Skalarno polje:}
+    \textbf{\scriptsize S. polje:}
     \iint_S f \, dS = \iint_D f(\mathbf{r}(u,v)) \sqrt{EG-F^2} \, du \, dv \\
-    \text{kjer } E = \mathbf{r}_u \cdot \mathbf{r}_u,\quad F = \mathbf{r}_u \cdot \mathbf{r}_v,\quad G = \mathbf{r}_v \cdot \mathbf{r}_v 
-\end{gather*}
-\begin{gather*}
-    \textbf{\scriptsize Vektorsko polje:}
+    \text{kjer } E = \mathbf{r}_u \cdot \mathbf{r}_u,\quad F = \mathbf{r}_u \cdot \mathbf{r}_v,\quad G = \mathbf{r}_v \cdot \mathbf{r}_v \\
+    z = z(x,y) \vec{n} = (-z _x, -z _y, 1)\\
+    \textbf{\scriptsize V. polje:}
     \iint_S \mathbf{V} \cdot d\mathbf{S} = \iint_D [\mathbf{V}, \mathbf{r}_u, \mathbf{r}_v] \, du \, dv
 \end{gather*}
 
 \subsection*{\footnotesize Integralski izreki}
-\begin{align*}
-\text{Greenov: } &\oint_C (P \, dx + Q \, dy) = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dA\\
-\text{Stokesov: } &\oint_C \mathbf{V} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{V}) \cdot d\mathbf{S}\\
-\text{Gaussov: } &\iint_S \mathbf{V} \cdot d\mathbf{S} = \iiint_E \nabla \cdot \mathbf{V} \, dV
-\end{align*}
+\begin{gather*}
+\text{Greenov: } \oint_C (P \, dx + Q \, dy) = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dxdy\\ 
+\text{ \tiny C : zaključena pozitivno orientirana krivulja, ki je rob območja D}\\
+\text{Stokesov: } \oint_C \mathbf{V} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{V}) \cdot d\mathbf{S}\\
+\text{ \tiny C : rob površine S}\\
+\text{Gaussov: } \iint_S \mathbf{V} \cdot d\mathbf{S} = \iiint_E \nabla \cdot \mathbf{V} \, dV\\
+\text{ \tiny S : zaprt površina, ki je rob območja E}
+\end{gather*}
 
 \section*{Kompleksna analiza}
 
 \subsection*{Elem. komp. fun.}
-\begin{align}
+\begin{align*}
 z &= x + iy, \quad |z| = \sqrt{x^2 + y^2}, \quad \arg z = \arctan\left(\frac{y}{x}\right)\\
 e^z &= e^x(\cos y + i\sin y)\\
-\log z &= \ln|z| + i\arg z + 2\pi ik\\
+\log z &= \ln|z| + i(\arg z + 2\pi k)\\
 \sin z &= \frac{e^{iz} - e^{-iz}}{2i}, \quad \cos z = \frac{e^{iz} + e^{-iz}}{2}\\
 \sinh z &= \frac{e^z - e^{-z}}{2}, \quad \cosh z = \frac{e^z + e^{-z}}{2}
-\end{align}
+\end{align*}
 
-\subsection*{Analitičnost in odvedljivost}
-\textbf{Cauchy-Riemann equations:}
-\begin{align}
-\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}
-\end{align}
+\subsection*{Analitičnost in odvedljivost in harmoničnost}
+\begin{gather*}
+\textbf{\footnotesize C-R pogoj: }
+\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}\\
+\text{Če velja je fun. analitična in odvedljiva} \\
+\text{Pogoj harmoničnosti: } \nabla^2 u = \nabla^2 v = 0 // w _{xx} + w _{yy} = 0
+\end{gather*}
 
-\textbf{Harmonic condition:} $\nabla^2 u = \nabla^2 v = 0$
+\subsection*{Formule kompleksne analize}
+\begin{gather*}
+\text{Cauchy's formula: } f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} dz\\
+\text{Residue theorem: } \oint_C f(z) dz = 2\pi i \sum \text{Res}(f, z_k)\\
+Res f(z) = \frac{1}{(m-1)!} \lim_{z \to z_0} \frac{d^{m-1}}{dz^{m-1}} \left[(z - z_0)^m f(z)\right] \\
+\text{Laurent series: } f(z) = \sum_{n=-\infty}^{\infty} a_n (z - z_0)^n
+\end{gather*}
 
-\subsection*{Complex Integration}
-\begin{align}
-\text{Cauchy's formula: } &f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} dz\\
-\text{Residue theorem: } &\oint_C f(z) dz = 2\pi i \sum \text{Res}(f, z_k)\\
-\text{Laurent series: } &f(z) = \sum_{n=-\infty}^{\infty} a_n (z - z_0)^n
-\end{align}
+\subsection*{Konformne preslikave}
+\begin{gather*}
+\text{Preslikava: } w = f(z) = u(x,y) + iv(x,y)\\
+\text{Lomljena Linearna preslikava / Mobiusova presl.}\\
+f(z) = \frac{az + b}{cz + d} ; ad - bc \neq 0\\
+\end{gather*}
 
 \newpage
 
@@ -171,6 +197,18 @@ e^z &= e^x(\cos y + i\sin y)\\
 \frac{d}{dx}\tan x &= \sec^2 x\\
 \frac{d}{dx}\arctan x &= \frac{1}{1+x^2}\\
 \frac{d}{dx}\arcsin x &= \frac{1}{\sqrt{1-x^2}}
+\end{align*}
+
+\subsection*{\footnotesize Trigonometrske funkcije}
+\begin{align*}
+\sin^2 x + \cos^2 x &= 1\\ 
+\tan x &= \frac{\sin x}{\cos x}\\
+\sin 2x &= 2\sin x \cos x\\
+\cos 2x &= \cos^2 x - \sin^2 x \\
+\tan 2x &= \frac{2\tan x}{1 - \tan^2 x}\\
+\sin(x \pm y) &= \sin x \cos y \pm \cos x \sin y\\
+\cos(x \pm y) &= \cos x \cos y \mp \sin x \sin y\\
+\tan(x \pm y) &= \frac{\tan x \pm \tan y}{1 \mp \tan x \tan y}
 \end{align*}
 
 \end{document}
