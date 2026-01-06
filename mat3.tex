@@ -5,6 +5,7 @@
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{xcolor}
 \usepackage{comment}
+\usepackage{amsmath, amssymb}
 \setlength{\mathindent}{0pt} % force no indent for displayed math
 \usepackage{multicol}
 \setlength{\columnsep}{0.1cm}
@@ -176,6 +177,7 @@
 \begin{gather*}
     \text{C-R pogoj: }\\
     \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}\\
+    u = \int v _y \, dx = - \int v _x \, dy + C\\
     \text{Pogoj harmoničnosti: }\\ 
     \nabla^2 u = \nabla^2 v = 0 // w _{xx} + w _{yy} = 0
 \end{gather*}
@@ -186,7 +188,12 @@
     Res f(z) = \frac{1}{(m-1)!} *\\* \lim_{z \to z_0}[ \frac{d^{m-1}}{dz^{m-1}} \left((z - z_0)^m f(z)\right)] \\
     \text{[m]-pol n-te stopnje}\\
     \text{L.V.:} f(z) = \sum_{n=-\infty}^{\infty} C_n (z - z_0)^n \\
-    C_{-1} = Res f(z) \, || \, f'(z) \text{ za stopnje ničel}
+    C_{-1} = Res f(z) \, || \, f'(z) \text{ za stopnje ničel} \\
+    \text{Eul. form. v } \mathbb{C}: \text{(realna rac. funkcija [f])} \\
+    sin(\phi) = \frac{e^{i\phi} - e^{-i\phi}}{2i} \\
+    cos(\phi) = \frac{e^{i\phi} + e^{-i\phi}}{2} \\
+    z = e^{i\phi}|d\phi = {dz}/{iz}| \int_{0}^{2\pi}f(sin(\phi),cos(\phi))d\phi\\
+    \frac{z - z^{-1}}{2i} = sin(\phi)\, | \,\frac{z + z^{-1}}{2} = cos(\phi)
 \end{gather*}
 
 \subsection*{Konformne presl. (C-R), Lomljena Linearna presl. / Mobiusova presl.}
