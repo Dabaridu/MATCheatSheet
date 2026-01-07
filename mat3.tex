@@ -51,11 +51,12 @@
         \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
         V_x & V_y & V_z 
     \end{vmatrix} = \\
-    = (Py-Qz,Pz-Rx,Qx-Py)\\
+    = (Ry-Qz,Pz-Rx,Qx-Py)\\
     \text{Laplacijan: } \nabla^2 s = \frac{\partial^2 s}{\partial x^2} + \frac{\partial^2 s}{\partial y^2} + \frac{\partial^2 s}{\partial z^2} \\
-    \text{vek. produkt treh vektorjev: BAC-CAB}\\ \nabla \times (\nabla \times \vec{v}) = \nabla (\nabla \cdot \vec{v}) - \vec{v}(\nabla \cdot \nabla)) \\
-    \text{Identiteta dvokratnega rotorja: }\\
-    rot(rot \vec{v}) = grad(div \vec{v}) - \nabla^2 \vec{v} 
+    % \text{vek. produkt treh vektorjev: BAC-CAB}\\ \nabla \times (\nabla \times \vec{v}) = \nabla (\nabla \cdot \vec{v}) - \vec{v}(\nabla \cdot \nabla)) \\
+    % \text{Identiteta dvokratnega rotorja: }\\
+    % rot(rot \vec{v}) = grad(div \vec{v}) - \nabla^2 \vec{v} \\
+    \text{Smerni odvod: } \frac{\partial s}{\partial l} = grad (s) \frac{\vec{l}}{|\vec{l}|} \\
 \end{gather*}
 
 \begin{comment}
@@ -132,13 +133,13 @@
 
 \subsection*{Integralski izreki}
 \begin{gather*}
-    \textcolor{red}{Greenov, Stokesov, Gaussov: }\\
+    \textcolor{black}{Greenov, Stokesov, Gaussov: }\\
      \oint_C (P \, dx + Q \, dy) = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dxdy\\ 
-    \text{ \tiny C : zaključena pozitivno orientirana krivulja, ki je rob območja D}\\
-    \oint_C \mathbf{V} \cdot d\mathbf{r} = \iint_S (\nabla \times \mathbf{V}) \cdot d\mathbf{S}\\
-    \text{ \tiny C : rob površine S}\\
-    \iint_S \mathbf{V} \cdot d\mathbf{S} = \iiint_E \nabla \cdot \mathbf{V} \, dV\\
-    \text{ \tiny S : zaprt površina, ki je rob območja E}
+    \text{ \tiny C - rob pozitivno orientiranega sklenjenega območja D}\\
+    \oint_C \mathbf{V} \cdot d\mathbf{r} = \iint_S rot \mathbf{V} \cdot d\mathbf{S} = \iint_D (rot \vec{V},\vec{r_u},\vec{r_v})du \, dv\\
+    \text{ \tiny C je rob površine S, in D je projekcija na ravnivo}\\
+    \iint_S \vec{\mathbf{V}} \cdot d\mathbf{S} = \iiint_W div \vec{\mathbf{V}} \, dx \, dy \, dz\\
+    \text{ \tiny S - zaprt površina, ki je rob območja W}
 \end{gather*}
 
 \section*{Kompleksna analiza}
@@ -161,22 +162,22 @@
     \text{!Integral analitične. fun. ni odvisen od poti!}
 \end{gather*}
 
-\subsection*{Taylorjeva in Laurentova vrsta}
+\subsection*{Kompleksne Vrste}
 \begin{gather*}
+        \text{Taylor: }
         f(x) = \sum_{n = 1}^{\infty} \frac{f^{(n)}(x_0)}{n!} (x-x_0)^n\\
         \text{Geometrijska, sin, cos, e vrsta: }\\
         \frac{1}{1-z}=\sum_{n=0}^{\infty}z^n \quad ; \text{$|z| < 1$}\\
         \sin z = \sum_{n=0}^{\infty}(-1)^n\frac{z^{2n+1}}{(2n+1)!} \quad ; \text{za vse z}\\
         \cos z = \sum_{n=0}^{\infty}(-1)^n\frac{z^{2n}}{(2n)!} \quad ; \text{za vse z}\\
         e^z = \sum_{n=0}^{\infty}\frac{z^n}{n!} \quad ; \text{za vse z}\\
-        \text{Laurentova vrsta: }\\
-        f(z) = \sum_{n=-\infty}^{\infty} a_n (z - z_0)^n \\ a_n = \frac{1}{2\pi i} \oint_C \frac{f(z)}{(z - z_0)^{n+1}} dz
+        \text{Laurent: } f(z) = \sum_{n=-\infty}^{\infty} a_n (z - z_0)^n \\
+        \qquad a_n = \frac{1}{2\pi i} \oint_C \frac{f(z)}{(z - z_0)^{n+1}} dz
 \end{gather*}
 
 \subsection*{Analitičnost in odvedljivost in harmoničnost}
 \begin{gather*}
-    \text{C-R pogoj: }\\
-    \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}\\
+    \text{C-R pogoj: } u_x = v_y \quad u_y = -v_x \quad u-x = \frac{\partial u}{\partial x} \\
     u = \int v _y \, dx = - \int v _x \, dy + C\\
     \text{Pogoj harmoničnosti: }\\ 
     \nabla^2 u = \nabla^2 v = 0 // w _{xx} + w _{yy} = 0
@@ -190,10 +191,11 @@
     \text{L.V.:} f(z) = \sum_{n=-\infty}^{\infty} C_n (z - z_0)^n \\
     C_{-1} = Res f(z) \, || \, f'(z) \text{ za stopnje ničel} \\
     \text{Eul. form. v } \mathbb{C}: \text{(realna rac. funkcija [f])} \\
+    e^{i\phi} = \cos \phi + i \sin \phi \quad z = x+iy \\
     sin(\phi) = \frac{e^{i\phi} - e^{-i\phi}}{2i} \\
     cos(\phi) = \frac{e^{i\phi} + e^{-i\phi}}{2} \\
     z = e^{i\phi}|d\phi = {dz}/{iz}| \int_{0}^{2\pi}f(sin(\phi),cos(\phi))d\phi\\
-    \frac{z - z^{-1}}{2i} = sin(\phi)\, | \,\frac{z + z^{-1}}{2} = cos(\phi)
+    \frac{z - z^{-1}}{2i} = sin(\phi)\, | \,\frac{z + z^{-1}}{2} = cos(\phi) 
 \end{gather*}
 
 \subsection*{Konformne presl. (C-R), Lomljena Linearna presl. / Mobiusova presl.}
