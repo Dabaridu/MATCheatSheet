@@ -8,6 +8,7 @@
 \usepackage{amsmath, amssymb}
 \setlength{\mathindent}{0pt} % force no indent for displayed math
 \usepackage{multicol}
+\usepackage{esint}
 \setlength{\columnsep}{0.1cm}
 
 % reduce vertical space around displayed math and between gather lines
@@ -40,7 +41,7 @@
 \begin{document}
 
 \section*{Teorija polj}
-\subsection*{Vektorski operatorji}
+\subsection*{Operatorji polj}
 \begin{gather*}
     \text{s = skalarno polje, V = vektorsko polje} \\
     \text{grad: } \nabla s = \left(\frac{\partial s}{\partial x}, \frac{\partial s}{\partial y}, \frac{\partial s}{\partial z}\right) \\
@@ -52,11 +53,14 @@
         V_x & V_y & V_z 
     \end{vmatrix} = \\
     = (Ry-Qz,Pz-Rx,Qx-Py)\\
-    \text{Laplacijan: } \nabla^2 s = \frac{\partial^2 s}{\partial x^2} + \frac{\partial^2 s}{\partial y^2} + \frac{\partial^2 s}{\partial z^2} \\
+    \text{Laplacijan: } \Delta s = \nabla^2 s = \frac{\partial^2 s}{\partial x^2} + \frac{\partial^2 s}{\partial y^2} + \frac{\partial^2 s}{\partial z^2} \\
     % \text{vek. produkt treh vektorjev: BAC-CAB}\\ \nabla \times (\nabla \times \vec{v}) = \nabla (\nabla \cdot \vec{v}) - \vec{v}(\nabla \cdot \nabla)) \\
     % \text{Identiteta dvokratnega rotorja: }\\
     % rot(rot \vec{v}) = grad(div \vec{v}) - \nabla^2 \vec{v} \\
     \text{Smerni odvod: } \frac{\partial s}{\partial l} = grad (s) \frac{\vec{l}}{|\vec{l}|} \\
+    \text{Lastnosti operatorjev polj: } \\
+    div\, grad\, f = \Delta f; \quad div \, rot \vec{v} = 0 \\ 
+    dif(f\vec{v})= f div\, \vec{v}+ grad \,f\cdot \vec{v}
 \end{gather*}
 
 \begin{comment}
@@ -90,13 +94,13 @@
 \subsection*{Razno formule}
 \begin{gather*}
     \text{Ločna dolžina: } s = \int_a^b |\mathbf{r}'(t)| \, dt=\\ = \int_a^b \sqrt{x'(t)^2 + y'(t)^2 + z'(t)^2} \, dt \\
-    \text{parame. točk: } \vec{r} = r _A * t(r _B - r _ A)\\
+    \text{Naravna parameterizacija: } \\ x'(s)^2 + y'(s)^2 + z'(s)^2 = 1 \\
+    \text{paramet. daljice: } \vec{r}(t) = r _A * t(r _B - r _ A)\\
     \text{Odvod integrala s parametrom: } \\
     F(x)=\int_{u(x)}^{v(x)} f(x,y)dy \quad \Rightarrow \\
     F'(x)=\int_{u(x)}^{v(x)} \frac{\partial(f(x,y))}{\partial(x)}dy+\\+f(x,v(x))*v'(x)-f(x,u(x))*u'(x) \\
-    \text{Naravna parameterizacija: } \\ |\mathbf{r}'(s)|^2 = 1, \quad s = \text{ločna dolžina} \\
     \text{Tangentna premica in normalna ravnina: } \\ \vec{e}\text{ ali }\vec{n} = \dot\vec{r}(t0) \\
-    \text{Kot med Vektorjema: } \cos\theta = \frac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|}
+    \text{Kot med Vektorjema: } \cos\theta = \frac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|} \\
 \end{gather*}
 
 \subsection*{Večkratni integrali}
@@ -112,7 +116,7 @@
 \subsection*{Krivuljni integrali}
 \begin{gather*}
     \textbf{\scriptsize S. polje:} 
-    \int_C f(x,y,z) ds =\\=\int_{t0}^{t1} f(x(t),y(t),z(t))*\sqrt{\dot{x}^2,+\dot{y}^2+\dot{z}^2} dt \\
+    \int_C f(x,y,z) ds =\\=\int_{t0}^{t1} f(x(t),y(t),z(t))*\sqrt{\dot{x}^2+\dot{y}^2+\dot{z}^2} dt \\
     \textbf{\scriptsize V. polje:}
     \int_C \mathbf{V} \cdot d\mathbf{r} = \int_C(Pdx + Qdy + Rdz)= \\ =\int_{t0}^{t1}(P\dot{x}+Q\dot{y}+R\dot{z}) dt \\
     \quad d\vec{r} = \dot\vec{r} dt = (\dot{x}dt,\dot{y}dt,\dot{z}dt)\\
@@ -123,10 +127,11 @@
 \begin{gather*}
     \textbf{\scriptsize S. polje:}
         \iint_S f \, dS =\\= \iint_D f(\mathbf{r}(u,v)) \sqrt{EG-F^2} \, du \, dv \\
-        \text{kjer } E = \mathbf{r}_u \cdot \mathbf{r}_u,\quad F = \mathbf{r}_u \cdot \mathbf{r}_v,\quad G = \mathbf{r}_v \cdot \mathbf{r}_v \\
-            z = z(x,y), \quad \vec{n} = (-z _x, -z _y, 1)\\
+        E = \mathbf{r}_u \cdot \mathbf{r}_u,\quad F = \mathbf{r}_u \cdot \mathbf{r}_v,\quad G =  \mathbf{r}_v \cdot \mathbf{r}_v \\
+        dS = \sqrt{1+z_x+z_y} \, dx \, dy. \quad f = f(r(x,y))\\
+        [\vec{n} = (-z _x, -z _y, 1), \quad z = z(x,y) ]\\
     \textbf{\scriptsize V. polje:}
-        \iint_S \mathbf{V} \cdot d\mathbf{S} =\\= \iint _S \mathbf V \cdot \vec{v} \text{ } dS = \iint_D [\mathbf{V}, \mathbf{r}_u, \mathbf{r}_v] \, du \, dv \\
+        \iint_S \mathbf{V} \cdot d\mathbf{S} =\\= \iint_S Pdydz+Qdzdx+Rdxdy =\\= \iint _S \mathbf V \cdot \vec{v} \text{ } dS = \iint_D [\mathbf{V}, \mathbf{r}_u, \mathbf{r}_v] \, du \, dv \\
             \vec{v} = \frac{\vec r _u \times \vec r _v}{|\vec r _u \times \vec r _v|}, \quad
             |\vec r _u \times \vec r _v| = \vec n
 \end{gather*}
@@ -135,74 +140,85 @@
 \begin{gather*}
     \textcolor{black}{Greenov, Stokesov, Gaussov: }\\
      \oint_C (P \, dx + Q \, dy) = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dxdy\\ 
-    \text{ \tiny C - rob pozitivno orientiranega sklenjenega območja D}\\
-    \oint_C \mathbf{V} \cdot d\mathbf{r} = \iint_S rot \mathbf{V} \cdot d\mathbf{S} = \iint_D (rot \vec{V},\vec{r_u},\vec{r_v})du \, dv\\
+    \text{ \tiny C - rob pozitivno orientiranega} \circlearrowleft \text{\tiny sklenjenega območja D } \\
+    \oint_C \mathbf{V} \cdot d\mathbf{r} = \iint_S rot \mathbf{V} \cdot d\mathbf{S} = \\= \iint_D (rot \vec{V},\vec{r_u},\vec{r_v})du \, dv\\
     \text{ \tiny C je rob površine S, in D je projekcija na ravnivo}\\
     \iint_S \vec{\mathbf{V}} \cdot d\mathbf{S} = \iiint_W div \vec{\mathbf{V}} \, dx \, dy \, dz\\
-    \text{ \tiny S - zaprt površina, ki je rob območja W}
+    \text{ \tiny S - zaprt površina, ki je rob telese W, usmerjena navzven} \\
+    \text{Gauss: } \oiint_S  \vec{v} \cdot d\mathbf{S} = \iiint_V \text{div}\,\vec{v}\,dx\,dy\,dz; \\ 
+    \text{vol}(V) = \iiint_V dx\,dy\,dz = \frac{1}{3}\oiint_S(x,y,z) \cdot d\mathbf{\vec{S}}\\
+    \oiint_S \frac{\partial f}{\partial v} dS = \iiint_V \Delta f \, dx\,dy\,dz; \\ 
+    \oiint_S \vec{v} \cdot d\mathbf{S} = 0 \text{ če je polje solenoidalno} \\
+    \text{Stokes: } \oint_{C = \partial S} \vec{v} \cdot d\vec{r} = \iint_S rot \, \vec{v} \cdot d\mathbf{S}\\
+    \oiint_S rot \, \vec{v} \cdot d\mathbf{S} = 0 \text{ če je polje irrotacionalno}
 \end{gather*}
 
 \section*{Kompleksna analiza}
+\subsection*{Analitičnost in odvedljivost in harmoničnost}
+\begin{gather*}
+    \text{Analitična funkcija: } f(z) = u(x,y) + iv(x,y) \\
+    \text{C-R pogoj: } u_x = v_y \quad u_y = -v_x \quad u-x = \frac{\partial u}{\partial x} \\
+    u = \int v _y \, dx = - \int v _x \, dy + C; \quad \text{\small "je Analitična"}\\
+    \text{Pogoj Harmoničnosti: }\\ 
+    \nabla^2 u = \nabla^2 v = 0, \quad w _{xx} + w _{yy} = 0
+\end{gather*}
 
 \subsection*{Elementarne komp. fun.}
 \begin{gather*}
     z = x + iy; \quad |z| = \sqrt{x^2 + y^2}; \quad\\
-     \arg z = \arctan\left(\frac{y}{x}\right)\\
-    e^z = e^x(\cos y + i\sin y); \quad d \varphi = \frac{dz}{iz}\\
+    \text{Polarni kot: } \arg z = \arctan\left(\frac{y}{x}\right) \\
+    e^z = e^x(\cos y + i\sin y)\\
     \log z = \log|z| + i(\arg z + 2\pi k)\\
-    \sin z = \frac{e^{iz} - e^{-iz}}{2i}, \cos z = \frac{e^{iz} + e^{-iz}}{2}\\
+    \sin z = \frac{e^{iz} - e^{-iz}}{2i} = \sin x \cosh y + i \cos x \sinh y\\
+    \cos z = \frac{e^{iz} + e^{-iz}}{2} = \cos x \cosh y - i \sin x \sinh y\\
     \sinh z = \frac{e^z - e^{-z}}{2}, \cosh z = \frac{e^z + e^{-z}}{2}
+\end{gather*}
+
+\subsection*{lastnosti komp. funkcij}
+\begin{gather*}
+    e^{i\phi} = \cos \phi + i \sin \phi, \quad z = x+iy \\
+    |e^{iy}| = 1; \, z = |z|e^{i\phi}, \, z^\alpha = e^{\alpha \ln z} \\
+    sin(\phi) = \frac{e^{i\phi} - e^{-i\phi}}{2i}; \quad cos(\phi) = \frac{e^{i\phi} + e^{-i\phi}}{2} \\
+    z = e^{i\phi}; \,d\phi = {dz}/{iz}; \, \int_{0}^{2\pi}f(sin(\phi),cos(\phi))d\phi\\
+    \frac{z - z^{-1}}{2i} = sin(\phi)\, ; \,\frac{z + z^{-1}}{2} = cos(\phi) 
 \end{gather*}
 
 \subsection*{Integral Kompleksne funkcije}
 \begin{gather*}
     \int_C f(z) \, dz = \int_C (u+iv)(dx+idy) = \\= \int_C (u \, dx - v \, dy) + i \int_C (v \, dx + u \, dy)\\
-    = \int_{t_a}^{t_b} f(z(t)) \cdot \dot{z}(t) \, dt\\
+    = \int_{t_a}^{t_b} f(z(t)) \cdot \dot{z}(t) \, dt; \, \text{prevod v simpl. INT}\\
     \text{Cauchjeva form.: } f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)}{z - z_0} dz\\
     \text{!Integral analitične. fun. ni odvisen od poti!}
 \end{gather*}
 
-\subsection*{Kompleksne Vrste}
-\begin{gather*}
-        \text{Taylor: }
-        f(x) = \sum_{n = 1}^{\infty} \frac{f^{(n)}(x_0)}{n!} (x-x_0)^n\\
-        \text{Geometrijska, sin, cos, e vrsta: }\\
-        \frac{1}{1-z}=\sum_{n=0}^{\infty}z^n \quad ; \text{$|z| < 1$}\\
-        \sin z = \sum_{n=0}^{\infty}(-1)^n\frac{z^{2n+1}}{(2n+1)!} \quad ; \text{za vse z}\\
-        \cos z = \sum_{n=0}^{\infty}(-1)^n\frac{z^{2n}}{(2n)!} \quad ; \text{za vse z}\\
-        e^z = \sum_{n=0}^{\infty}\frac{z^n}{n!} \quad ; \text{za vse z}\\
-        \text{Laurent: } f(z) = \sum_{n=-\infty}^{\infty} a_n (z - z_0)^n \\
-        \qquad a_n = \frac{1}{2\pi i} \oint_C \frac{f(z)}{(z - z_0)^{n+1}} dz
-\end{gather*}
+% \subsection*{Kompleksne Vrste}
+% \begin{gather*}
+%         \text{Taylor: }
+%         f(x) = \sum_{n = 1}^{\infty} \frac{f^{(n)}(x_0)}{n!} (x-x_0)^n\\
+%         \text{Geometrijska, sin, cos, e vrsta: }\\
+%         \frac{1}{1-z}=\sum_{n=0}^{\infty}z^n \quad ; \text{$|z| < 1$}\\
+%         \sin z = \sum_{n=0}^{\infty}(-1)^n\frac{z^{2n+1}}{(2n+1)!} \quad ; \text{za vse z}\\
+%         \cos z = \sum_{n=0}^{\infty}(-1)^n\frac{z^{2n}}{(2n)!} \quad ; \text{za vse z}\\
+%         e^z = \sum_{n=0}^{\infty}\frac{z^n}{n!} \quad ; \text{za vse z}\\
+%         \text{Laurent: } f(z) = \sum_{n=-\infty}^{\infty} a_n (z - z_0)^n \\
+%         \qquad a_n = \frac{1}{2\pi i} \oint_C \frac{f(z)}{(z - z_0)^{n+1}} dz
+% \end{gather*}
 
-\subsection*{Analitičnost in odvedljivost in harmoničnost}
-\begin{gather*}
-    \text{C-R pogoj: } u_x = v_y \quad u_y = -v_x \quad u-x = \frac{\partial u}{\partial x} \\
-    u = \int v _y \, dx = - \int v _x \, dy + C\\
-    \text{Pogoj harmoničnosti: }\\ 
-    \nabla^2 u = \nabla^2 v = 0 // w _{xx} + w _{yy} = 0
-\end{gather*}
+% \subsection*{Formule kompleksne analize in rezidumi}
+% \begin{gather*}
+    % \text{Residum: } \oint_C f(z) dz = 2\pi i \sum \text{Res}(f, z_k)\\
+    % Res f(z) = \frac{1}{(m-1)!} *\\* \lim_{z \to z_0}[ \frac{d^{m-1}}{dz^{m-1}} \left((z - z_0)^m f(z)\right)] \\
+    % \text{[m]-pol n-te stopnje}\\
+    % \text{L.V.:} f(z) = \sum_{n=-\infty}^{\infty} C_n (z - z_0)^n \\
+    % C_{-1} = Res f(z) \, ; \, f'(z) \text{ za stopnje ničel} \\
+    % \text{Eul. form. v } \mathbb{C}: \text{(realna rac. funkcija [f])} \\
+% \end{gather*}
 
-\subsection*{Formule kompleksne analize}
-\begin{gather*}
-    \text{Residum: } \oint_C f(z) dz = 2\pi i \sum \text{Res}(f, z_k)\\
-    Res f(z) = \frac{1}{(m-1)!} *\\* \lim_{z \to z_0}[ \frac{d^{m-1}}{dz^{m-1}} \left((z - z_0)^m f(z)\right)] \\
-    \text{[m]-pol n-te stopnje}\\
-    \text{L.V.:} f(z) = \sum_{n=-\infty}^{\infty} C_n (z - z_0)^n \\
-    C_{-1} = Res f(z) \, || \, f'(z) \text{ za stopnje ničel} \\
-    \text{Eul. form. v } \mathbb{C}: \text{(realna rac. funkcija [f])} \\
-    e^{i\phi} = \cos \phi + i \sin \phi \quad z = x+iy \\
-    sin(\phi) = \frac{e^{i\phi} - e^{-i\phi}}{2i} \\
-    cos(\phi) = \frac{e^{i\phi} + e^{-i\phi}}{2} \\
-    z = e^{i\phi}|d\phi = {dz}/{iz}| \int_{0}^{2\pi}f(sin(\phi),cos(\phi))d\phi\\
-    \frac{z - z^{-1}}{2i} = sin(\phi)\, | \,\frac{z + z^{-1}}{2} = cos(\phi) 
-\end{gather*}
-
-\subsection*{Konformne presl. (C-R), Lomljena Linearna presl. / Mobiusova presl.}
-\begin{gather*}
-\text{Preslikava: } w = f(z) = u(x,y) + iv(x,y)\\
-f(z) = \frac{az + b}{cz + d} ; ad - bc \neq 0\\
-\end{gather*}
+% \subsection*{Konformne presl. (C-R), Lomljena Linearna presl. / Mobiusova presl.}
+% \begin{gather*}
+% \text{Preslikava: } w = f(z) = u(x,y) + iv(x,y)\\
+% f(z) = \frac{az + b}{cz + d} ; ad - bc \neq 0\\
+% \end{gather*}
 
 \newpage
 
@@ -223,7 +239,8 @@ f(z) = \frac{az + b}{cz + d} ; ad - bc \neq 0\\
 \int \sin x dx &= -\cos x + C\\
 \int \cos x dx &= \sin x + C\\
 \int \frac{1}{1+x^2} dx &= \arctan x + C\\
-\int \frac{1}{\sqrt{1-x^2}} dx &= \arcsin x + C
+\int \frac{1}{\sqrt{1-x^2}} dx &= \arcsin x + C \\
+\int \sqrt{x} dx &= \frac{2}{3} x^{3/2} + C 
 \end{align*}
 
 \section*{\small Odvodi}
@@ -248,7 +265,7 @@ f(z) = \frac{az + b}{cz + d} ; ad - bc \neq 0\\
 \frac{d}{dx}\arcsin x &= \frac{1}{\sqrt{1-x^2}}
 \end{align*}
 
-\subsection*{Trigonometrske funkcije}
+\subsection*{Trigonometrske relacije}
 \begin{gather*}
     \sin^2 x + \cos^2 x = 1\\ 
     \tan x = \frac{\sin x}{\cos x}\\
